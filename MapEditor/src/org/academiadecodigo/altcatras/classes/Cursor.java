@@ -18,7 +18,7 @@ public class Cursor implements KeyboardHandler {
     private Rectangle cursorBorder;
     private Keyboard keyboard;
     private Position position;
-    private MapCreator map;
+    private Map map;
     private LinkedList<Rectangle> allCells;
     private Color[] colors;
     private int currentColor = 0;
@@ -26,15 +26,15 @@ public class Cursor implements KeyboardHandler {
     private boolean paint = false;
 
 
-    public Cursor(MapCreator map) throws IOException {
+    public Cursor(Map map) {
         this.position = new Position(0, 0);
         this.map = map;
         this.fileCreator = new FileCreator();
         this.colors = new Color[]{Color.BLUE, Color.GREEN, Color.BLACK, Color.RED, Color.YELLOW, Color.ORANGE, Color.GRAY, Color.PINK, Color.CYAN, Color.MAGENTA};
         this.allCells = map.getCells();
-        this.cursor = new Rectangle(MapCreator.getPADDING(), MapCreator.getPADDING(), MapCreator.getCELLSIZE(), MapCreator.getCELLSIZE());
+        this.cursor = new Rectangle(Map.getPADDING(), Map.getPADDING(), Map.getCELLSIZE(), Map.getCELLSIZE());
         this.cursor.setColor(Color.BLACK);
-        this.cursorBorder = new Rectangle(MapCreator.getPADDING() - 2, MapCreator.getPADDING() - 2, MapCreator.getCELLSIZE() + 4, MapCreator.getCELLSIZE() + 4);
+        this.cursorBorder = new Rectangle(Map.getPADDING() - 2, Map.getPADDING() - 2, Map.getCELLSIZE() + 4, Map.getCELLSIZE() + 4);
         this.cursorBorder.setColor(colors[currentColor]);
         this.keyboard = new Keyboard(this);
     }
@@ -202,8 +202,8 @@ public class Cursor implements KeyboardHandler {
             case KeyboardEvent.KEY_RIGHT:
                 if (this.position.getCols() + 1 < this.map.getCOLS()) {
                     this.position.setCols(1);
-                    this.cursor.translate(MapCreator.getCELLSIZE(), 0);
-                    this.cursorBorder.translate(MapCreator.getCELLSIZE(), 0);
+                    this.cursor.translate(Map.getCELLSIZE(), 0);
+                    this.cursorBorder.translate(Map.getCELLSIZE(), 0);
                 }
                 if (paint) {
                     for (Rectangle cell : allCells) {
@@ -217,8 +217,8 @@ public class Cursor implements KeyboardHandler {
             case KeyboardEvent.KEY_LEFT:
                 if (this.position.getCols() - 1 >= 0) {
                     this.position.setCols(-1);
-                    this.cursor.translate(-MapCreator.getCELLSIZE(), 0);
-                    this.cursorBorder.translate(-MapCreator.getCELLSIZE(), 0);
+                    this.cursor.translate(-Map.getCELLSIZE(), 0);
+                    this.cursorBorder.translate(-Map.getCELLSIZE(), 0);
 
                 }
                 if (paint) {
@@ -233,8 +233,8 @@ public class Cursor implements KeyboardHandler {
             case KeyboardEvent.KEY_DOWN:
                 if (this.position.getRows() + 1 < this.map.getROWS()) {
                     this.position.setRows(+1);
-                    this.cursor.translate(0, MapCreator.getCELLSIZE());
-                    this.cursorBorder.translate(0, MapCreator.getCELLSIZE());
+                    this.cursor.translate(0, Map.getCELLSIZE());
+                    this.cursorBorder.translate(0, Map.getCELLSIZE());
 
                 }
                 if (paint) {
@@ -249,8 +249,8 @@ public class Cursor implements KeyboardHandler {
             case KeyboardEvent.KEY_UP:
                 if (this.position.getRows() - 1 >= 0) {
                     this.position.setRows(-1);
-                    this.cursor.translate(0, -MapCreator.getCELLSIZE());
-                    this.cursorBorder.translate(0, -MapCreator.getCELLSIZE());
+                    this.cursor.translate(0, -Map.getCELLSIZE());
+                    this.cursorBorder.translate(0, -Map.getCELLSIZE());
                 }
                 if (paint) {
                     for (Rectangle cell : allCells) {

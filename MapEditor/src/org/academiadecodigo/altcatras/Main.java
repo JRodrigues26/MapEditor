@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        Game g = new Game(10,10);
+        MapEditor g = new MapEditor(10,10);
         g.start();
 
     }

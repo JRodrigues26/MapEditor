@@ -5,7 +5,7 @@ import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
 import java.util.LinkedList;
 
-public class MapCreator {
+public class Map {
 
     private static final int PADDING = 10;
     private static final int CELLSIZE = 25;
@@ -17,7 +17,7 @@ public class MapCreator {
     private int height;
     private LinkedList<Rectangle> cells;
 
-    public MapCreator(int cols, int rows) {
+    public Map(int cols, int rows) {
         cells = new LinkedList<>();
         this.cols = cols;
         this.rows = rows;

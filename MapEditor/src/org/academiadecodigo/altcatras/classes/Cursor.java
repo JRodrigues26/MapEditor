@@ -120,40 +120,40 @@ public class Cursor implements KeyboardHandler {
         int col = 1;
         for (Rectangle cells : allCells) {
             if (!cells.isFilled()) {
-                filled = "0";
+                filled = "0 ";
                 if (col % map.getCOLS() == 0) {
                     filled += "\n";
                 }
             } else if (cells.isFilled()) {
                 if (cells.getColor() == colors[0]) {
-                    filled = "B";
+                    filled = "B ";
                 } else if (cells.getColor() == colors[1]) {
-                    filled = "G";
+                    filled = "G ";
                 } else if (cells.getColor() == colors[2]) {
-                    filled = "F";
+                    filled = "F ";
                 } else if (cells.getColor() == colors[3]) {
-                    filled = "R";
+                    filled = "R ";
                 } else if (cells.getColor() == colors[4]) {
-                    filled = "Y";
+                    filled = "Y ";
                 } else if (cells.getColor() == colors[5]) {
-                    filled = "O";
+                    filled = "O ";
                 } else if (cells.getColor() == colors[6]) {
-                    filled = "g";
+                    filled = "g ";
                 } else if (cells.getColor() == colors[7]) {
-                    filled = "P";
+                    filled = "P ";
                 } else if (cells.getColor() == colors[8]) {
-                    filled = "C";
+                    filled = "C ";
                 } else {
-                    filled = "M";
+                    filled = "M ";
                 }
                 if (col % map.getCOLS() == 0) {
                     filled += "\n";
                 }
             }
-            text += filled + " ";
-            System.out.println(text);
+            text += filled;
             col++;
         }
+        System.out.println(text);
         this.fileCreator.save("resources/work", text);
     }
 

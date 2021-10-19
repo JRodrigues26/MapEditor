@@ -6,8 +6,8 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        MapEditor g = new MapEditor(10,10);
-        g.start();
+        MapEditor mapEditor = new MapEditor(20,20);
+        mapEditor.start();
 
     }
 }
